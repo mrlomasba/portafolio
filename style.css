@@ -1,0 +1,320 @@
+/* Paleta de colores y variables CSS */
+:root {
+    --primary-color: #32cd32;
+    /* Verde Neón Lima */
+    --bg-dark: #000000;
+    /* Negro Minimalista */
+    /* Fondos semi-transparentes (20% opaco) */
+    --bg-medium-transparent: rgba(15, 15, 15, 0.20);
+    --bg-card-transparent: rgba(13, 13, 13, 0.20);
+
+    --text-light: #f0fff0;
+    --secondary-accent: #fcd34d;
+    /* Amarillo para Industrial */
+    --glow-shadow-lg: 0 0 15px rgba(50, 205, 50, 0.7);
+    --glow-shadow-sm: 0 0 8px rgba(50, 205, 50, 0.5);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    overflow-x: hidden;
+}
+
+/* Efecto Matrix */
+#matrix-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+/* Colores de acento y fondo */
+.header-bg {
+    background-color: var(--bg-medium-transparent);
+    /* Borde inferior del header se mantiene para la separación con el contenido */
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.accent-text {
+    color: var(--primary-color);
+    text-shadow: 0 0 8px rgba(50, 205, 50, 0.6);
+}
+
+.industrial-text {
+    color: var(--secondary-accent);
+    text-shadow: 0 0 5px rgba(252, 211, 77, 0.3);
+}
+
+/* Título de sección */
+.section-title {
+    border-left: 4px solid var(--primary-color);
+    padding-left: 0.75rem;
+    font-family: 'Space Mono', monospace;
+    text-transform: uppercase;
+    box-shadow: var(--glow-shadow-sm);
+    margin-bottom: 1.5rem;
+}
+
+.cv-container {
+    max-width: 1000px;
+    background-color: var(--bg-medium-transparent);
+    box-shadow: 0 0 40px rgba(50, 205, 50, 0.15), 0 20px 25px -5px rgba(0, 0, 0, 0.8);
+    z-index: 10;
+    position: relative;
+}
+
+/* Tarjetas de listado */
+.list-item-card {
+    background-color: var(--bg-card-transparent);
+    border: 1px solid rgba(50, 205, 50, 0.1);
+    transition: border 0.3s, box-shadow 0.3s, transform 0.3s;
+    margin-bottom: 1.5rem;
+    animation: subtle-pulse 5s infinite ease-in-out;
+    /* Estilo para los proyectos en el carrusel */
+    flex-shrink: 0;
+    width: 100%;
+
+    @media (min-width: 640px) {
+        width: 450px;
+        margin-right: 1.5rem;
+        /* Ajuste para coincidir con el gap */
+    }
+}
+
+.list-item-card:hover {
+    border: 1px solid var(--primary-color);
+    box-shadow: var(--glow-shadow-sm);
+    transform: translateY(-2px);
+    animation-play-state: paused;
+}
+
+/* Items de Contacto */
+.contact-item {
+    border-left: 2px solid transparent;
+    padding-left: 0.5rem;
+    transition: border-left-color 0.3s ease;
+}
+
+.contact-item:hover {
+    border-left-color: var(--primary-color);
+}
+
+/* Subtítulos (Aumentado a 1.25rem) */
+.sub-section-title {
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+
+/* Estilos de botón primario */
+.btn-primary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    box-shadow: var(--glow-shadow-sm);
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-dark);
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+/* Contenedor del Carrusel de Proyectos */
+#proyectos-carrusel {
+    display: flex;
+    overflow-x: auto;
+    gap: 1.5rem;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 1rem;
+
+    /* === Ocultar barra de desplazamiento === */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+/* Ocultar barra de desplazamiento para navegadores basados en WebKit (Chrome, Safari) */
+#proyectos-carrusel::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* ======================================= */
+
+/* Regla de Scroll Snap para cada tarjeta de proyecto */
+.list-item-card {
+    scroll-snap-align: start;
+}
+
+/* Estilos de botones minimalistas */
+.carousel-nav-btn {
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Fondo semi-transparente para visibilidad */
+    backdrop-filter: blur(2px);
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 9999px;
+    opacity: 0.8;
+    /* Aumento la opacidad para que se vea sobre el contenido */
+    box-shadow: 0 0 8px rgba(50, 205, 50, 0.7);
+    z-index: 20;
+    /* Asegurar que esté sobre el carrusel */
+    transition: background-color 0.2s, transform 0.2s, opacity 0.2s;
+}
+
+.carousel-nav-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-dark);
+    transform: scale(1.2);
+    opacity: 1;
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+
+/* --- Carrusel de Habilidades (ya existente) --- */
+.carousel-track-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    width: fit-content;
+    animation: scroll-left 40s linear infinite;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.carousel-track:hover {
+    animation-play-state: paused;
+}
+
+.skill-icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0.75rem;
+    width: 80px;
+    flex-shrink: 0;
+    opacity: 0.8;
+    transition: opacity 0.3s, transform 0.3s;
+    padding: 0.5rem;
+}
+
+.skill-icon-item:hover {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+    height: 96px;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--glow-shadow-sm);
+    overflow: hidden;
+}
+
+.icon-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.3rem;
+}
+
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* --- Glitch Pulse Animation for Name --- */
+.name-glitch {
+    animation: minimal-glitch-pulse 6s infinite ease-in-out;
+}
+
+@keyframes minimal-glitch-pulse {
+
+    0%,
+    50%,
+    100% {
+        text-shadow: 0 0 5px var(--primary-color), 0 0 10px rgba(50, 205, 50, 0.2);
+        transform: none;
+    }
+
+    10% {
+        text-shadow: 0.5px 0 5px var(--primary-color), -0.5px 0 10px rgba(50, 205, 50, 0.2);
+        transform: skew(0.5deg);
+    }
+
+    10.1% {
+        text-shadow: -0.5px 0 5px var(--primary-color), 0.5px 0 10px rgba(50, 205, 50, 0.2);
+        transform: skew(-0.5deg);
+    }
+
+    70% {
+        text-shadow: 0.8px 0 5px var(--primary-color), -0.8px 0 10px rgba(50, 205, 50, 0.3);
+    }
+
+    70.05% {
+        text-shadow: -0.8px 0 5px var(--primary-color), 0.8px 0 10px rgba(50, 205, 50, 0.3);
+    }
+}
+
+/* --- Dual Core Pulse Animation for Subtitle --- */
+.dual-core-pulse {
+    animation: dual-pulse 4s infinite ease-in-out;
+}
+
+@keyframes dual-pulse {
+
+    0%,
+    100% {
+        /* Énfasis en Industrial (Amarillo) */
+        text-shadow: 0 0 5px rgba(252, 211, 77, 0.5), 0 0 10px rgba(50, 205, 50, 0.1);
+    }
+
+    50% {
+        /* Énfasis en Software (Verde) */
+        text-shadow: 0 0 8px rgba(50, 205, 50, 0.5), 0 0 12px rgba(252, 211, 77, 0.1);
+    }
+}
+
+/* Animación sutil de pulso para tarjetas de lista */
+@keyframes subtle-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 5px rgba(50, 205, 50, 0.1);
+    }
+
+    50% {
+        box-shadow: 0 0 8px rgba(50, 205, 50, 0.2);
+    }
+}

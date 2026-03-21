@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Edgar.B</title>
+    <link rel="icon" href="logo.ico">
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="p-4 sm:p-8 flex justify-center">
+
+    <!-- CANVAS para la animación estilo Matrix (Fondo) -->
+    <canvas id="matrix-canvas"></canvas>
+
+    <div id="cv-content" class="cv-container rounded-xl overflow-hidden w-full">
+
+        <!-- HEADER -->
+        <header class="header-bg p-6 sm:p-10 relative">
+            <div class="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6">
+
+                <!-- AVATAR -->
+                <div class="w-64 h-64 sm:w-80 sm:h-80 rounded-full border-4 flex-shrink-0 overflow-hidden border-primary-color"
+                    style="box-shadow: var(--glow-shadow-lg);">
+
+                    <img src="pic.png" alt="Foto de Perfil de Edgar Balleza Lomas" class="w-full h-full object-cover">
+                </div>
+
+                <div>
+                    <h1 class="text-3xl sm:text-5xl font-extrabold tracking-widest accent-text name-glitch">
+                        EDGAR B. LOMAS
+                    </h1>
+                    <br>
+                    <!-- ANIMACIÓN DUAL-CORE PULSE -->
+                    <h2 class="text-xl sm:text-2xl mt-1 font-light text-gray-300 dual-core-pulse">
+                        Ingeniero Desarrollador Web Full-Stack | Técnico Mecánico Industrial
+                    </h2>
+                    <p class="mt-4 text-sm sm:text-base text-gray-400">
+                        Profesional <strong>Dual-Core</strong> con 2 años en ingeniería de software y 5 años de
+                        experiencia crítica en entornos industriales. Mi visión fusiona la lógica de código con la
+                        precisión de la mecánica, ideal para proyectos de **Industria 4.0** y automatización
+                        inteligente.
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="p-6 sm:p-10 space-y-12">
+
+            <!-- 1. CONTACTO -->
+            <section>
+                <h3 class="section-title text-xl text-gray-300">Contacto</h3>
+                <ul class="space-y-3 text-sm font-mono">
+                    <li class="flex items-center contact-item">
+                        <span class="accent-text w-5 mr-3">📧</span>
+                        <a href="mailto:edgarballeza10@gmail.com"
+                            class="hover:underline hover:accent-text">edgarballeza10@gmail.com</a>
+                    </li>
+                    <li class="flex items-center contact-item">
+                        <span class="accent-text w-5 mr-3">📱</span>
+                        <span>8123384579</span>
+                    </li>
+                    <li class="flex items-center contact-item">
+                        <span class="accent-text w-5 mr-3">💻</span>
+                        <a href="#" class="hover:underline hover:accent-text" target="_blank">github.com/mrlomasba</a>
+                    </li>
+                    <li class="flex items-center contact-item">
+                        <span class="accent-text w-5 mr-3">📍</span>
+                        <span>Mexico, Monterrey</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- 2. MÓDULOS DE COMPETENCIA -->
+            <section>
+                <h3 class="section-title text-xl text-gray-300">Módulos de Competencia</h3>
+                <br>
+                <div class="carousel-track-container">
+                    <div id="skill-track" class="carousel-track">
+                        <!-- Generado por JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. EXPERIENCIA LABORAL -->
+            <section>
+                <h3 class="section-title text-xl text-gray-300">Habilidades Técnicas</h3>
+                <div class="space-y-6">
+
+                    <!-- Item 1: Experiencia Web Dev -->
+                    <div class="list-item-card p-4 rounded-lg shadow-lg w-full">
+                        <span class="bg-blue-900/40 text-blue-300 px-2 py-1 rounded text-xs font-semibold font-mono">💻
+                            CORE: Code Logic</span>
+                        <h4 class="sub-section-title mt-1 accent-text">Desarrollador Full-Stack Senior</h4>
+                        <p class="text-base font-semibold text-gray-400 font-mono mb-2">TechInnovate Solutions | 2024 –
+                            Actualidad</p>
+                        <ul class="list-disc ml-5 mt-2 text-base text-gray-300 space-y-1">
+                            <li>Liderazgo en el desarrollo de la arquitectura de microservicios usando Node.js y React.
+                            </li>
+                            <li>Frontend: React.js, Next.js, HTML5, Tailwind CSS</li>
+                            <li>Backend: Node.js, Express, Python (Django)</li>
+                            <li>Bases de Datos: PostgreSQL, MongoDB, SQL Server</li>
+                            <li>Control de Versiones: Git, GitHub/GitLab</li>
+                        </ul>
+                    </div>
+
+                    <!-- Item 2: Experiencia Industrial -->
+                    <div class="list-item-card p-4 rounded-lg shadow-lg w-full">
+                        <span
+                            class="bg-yellow-900/40 text-yellow-300 px-2 py-1 rounded text-xs font-semibold font-mono">⚙️
+                            CORE: Industrial Ops</span>
+                        <h4 class="sub-section-title mt-1 industrial-text">Técnico Mecánico y Soldador Industrial</h4>
+                        <p class="text-base font-semibold text-gray-400 font-mono mb-2">Mantenimiento I.P. | 2019 – 2024
+                        </p>
+                        <ul class="list-disc ml-5 mt-2 text-base text-gray-300 space-y-1">
+                            <li>Realización de trabajos de soldadura de precisión en estructuras críticas y maquinaria
+                                pesada.</li>
+                            <li>Diagnóstico y reparación de fallas mecánicas e hidráulicas, **asegurando la continuidad
+                                operativa (98% de disponibilidad)**.</li>
+                            <li>Responsable del control de inventario de piezas de recambio y del proceso de
+                                entrada/salida de facturas de proveedores.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+
+            <section>
+                <!-- Título de la sección -->
+                <h3 class="section-title text-xl text-gray-300 m-0">Proyectos</h3>
+
+                <!-- Contenedor del Carrusel y Navegación (Relativo para posicionamiento absoluto de botones) -->
+                <div class="relative mb-10">
+                    <!-- Contenedor del Carrusel (sin barra de scroll visible) -->
+                    <div id="proyectos-carrusel">
+
+                        <div class="list-item-card p-4 rounded-lg shadow-lg border-primary-color/20">
+                            <h4 class="sub-section-title accent-text mb-2">01. ACSA - Web Oficial</h4>
+                            <p class="text-gray-400 text-base mb-4">
+                                Sitio Web para una empresa de servicios industriales, con enfoque en la
+                                presentación de servicios y proyectos clave.
+                            </p>
+
+                            <img src="acsa.png" alt="Captura de pantalla del sitio web acsa"
+                                onerror="this.onerror=null; this.src='https://placehold.co/800x450/1a1a1a/32cd32?text=IMAGEN+ACSA+PENDIENTE';"
+                                class="w-full h-auto rounded-lg mb-4 object-cover border-2 border-primary-color/50"
+                                style="aspect-ratio: 16/9; max-height: 250px;">
+
+                            <div class="flex justify-center mt-2">
+                                <a href="https://acsaindustriales.com/" target="_blank"
+                                    class="btn-primary inline-block px-4 py-2 text-sm font-bold text-center rounded-lg font-mono">
+                                    Ver Sitio ↗
+                                </a>
+                            </div>
+                        </div>
+
+
+                        <div class="list-item-card p-4 rounded-lg shadow-lg border-primary-color/20">
+                            <h4 class="sub-section-title accent-text mb-2">02. AZMOL - Distribuidor Exclusivo</h4>
+                            <p class="text-gray-400 text-base mb-4">
+                                Sitio Web para una empresa britanica de distribución, con enfoque en la
+                                presentación de aceites 100% sintéticos.
+                            </p>
+                            <!-- 📌 IMAGEN DEL PROYECTO 2 -->
+                            <img src="azmol.png" alt="Captura de pantalla de azmol"
+                                onerror="this.onerror=null; this.src='https://placehold.co/800x450/1a1a1a/32cd32?text=IMAGEN+AZMOL+PENDIENTE';"
+                                class="w-full h-auto rounded-lg mb-4 object-cover border-2 border-primary-color/50"
+                                style="aspect-ratio: 16/9; max-height: 250px;">
+
+                            <!-- Botón para ver el sitio (CENTRO) -->
+                            <div class="flex justify-center mt-2">
+                                <a href="https://mrlomasba.github.io/azmol/" target="_blank"
+                                    class="btn-primary inline-block px-4 py-2 text-sm font-bold text-center rounded-lg font-mono">
+                                    Ver Sitio ↗
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- PROYECTO 03 -->
+                        <div class="list-item-card p-4 rounded-lg shadow-lg border-primary-color/20">
+                            <h4 class="sub-section-title accent-text mb-2">03. Constructora Nabih - Web Oficial</h4>
+                            <p class="text-gray-400 text-base mb-4">
+                                Sitio Web para una empresa de construcción, con enfoque en la
+                                presentación de servicios y proyectos clave.
+                            </p>
+                            <img src="nabih.png" alt="Captura de pantalla de nabih"
+                                onerror="this.onerror=null; this.src='https://placehold.co/800x450/1a1a1a/fcd34d?text=IMAGEN+CONSTRUCTORA+PENDIENTE';"
+                                class="w-full h-auto rounded-lg mb-4 object-cover border-2 border-secondary-accent/50"
+                                style="aspect-ratio: 16/9; max-height: 250px;">
+
+                            <!-- Botón para ver el sitio (CENTRO) -->
+                            <div class="flex justify-center mt-2">
+                                <a href="https://constructoranabih.com/" target="_blank"
+                                    class="btn-primary inline-block px-4 py-2 text-sm font-bold text-center rounded-lg font-mono">
+                                    Ver Sitio ↗
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Controles de Navegación del Carrusel -->
+                    <div
+                        class="absolute top-1/2 left-0 right-0 flex items-center justify-between pointer-events-none px-4 -translate-y-1/2">
+                        <button id="nav-left" class="carousel-nav-btn pointer-events-auto"
+                            aria-label="Anterior Proyecto">
+                            &lt;
+                        </button>
+                        <button id="nav-right" class="carousel-nav-btn pointer-events-auto"
+                            aria-label="Siguiente Proyecto">
+                            &gt;
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. FORMACIÓN -->
+            <section>
+                <h3 class="section-title text-xl text-gray-300">Formación y Certificaciones</h3>
+
+                <div class="space-y-4">
+                    <div class="list-item-card p-4 rounded-lg w-full">
+                        <h4 class="sub-section-title accent-text">Grado en Ingeniería de Software</h4>
+                        <p class="text-base text-gray-400 font-mono">Universidad Tecnologica Santa Catarina (UTSC) |
+                            2021 | 2024</p>
+                    </div>
+                    <div class="list-item-card p-4 rounded-lg w-full">
+                        <h4 class="sub-section-title industrial-text">Técnico Superior en Mecanica Industrial</h4>
+                        <p class="text-base text-gray-400 font-mono">Cetis 66 | 2015 | 2018</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="text-center p-4 text-xs text-gray-500 header-bg font-mono">
+            // STATUS: PROFILE ACTIVE & OPTIMIZED // &copy; <span id="current-year"></span> Edgar B. Lomas.
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
