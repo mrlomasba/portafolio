@@ -74,13 +74,15 @@ body {
     transition: border 0.3s, box-shadow 0.3s, transform 0.3s;
     margin-bottom: 1.5rem;
     animation: subtle-pulse 5s infinite ease-in-out;
-    /* Estilo para los proyectos en el carrusel */
-    flex-shrink: 0;
     width: 100%;
+}
+
+/* Restricciones exclusivas para tarjetas dentro del carrusel */
+#proyectos-carrusel .list-item-card {
+    flex-shrink: 0;
 
     @media (min-width: 640px) {
         width: 450px;
-        margin-right: 1.5rem;
         /* Ajuste para coincidir con el gap */
     }
 }
@@ -130,7 +132,7 @@ body {
     display: flex;
     overflow-x: auto;
     gap: 1.5rem;
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: x proximity;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     padding-bottom: 1rem;
